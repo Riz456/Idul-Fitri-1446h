@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumpulan Hadits | Puasa & Memaafkan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #0d6e6e;
+            --secondary-color: #f8b400;
+            --dark-color: #1e2a3a;
+            --light-color: #f5f5f5;
+            --accent-color: #c43e1c;
+            --arabic-font: 'Scheherazade New', serif;
+            --text-font: 'Amiri', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--text-font);
+            background-color: #f9f5f0;
+            color: var(--dark-color);
+            line-height: 1.8;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyMjAsMjIwLDIyMCwwLjMpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            background-attachment: fixed;
+            background-size: 300px;
+            background-blend-mode: overlay;
+            direction: rtl;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.03);
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #0a5959);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            background-size: 200px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header h1 i {
+            margin-left: 15px;
+            color: var(--secondary-color);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        nav a i {
+            margin-left: 8px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 i {
+            margin-left: 10px;
+            color: var(--secondary-color);
+        }
+
+        .arabic-title {
+            font-family: var(--arabic-font);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+        }
+
+        /* Hadith Cards */
+        .hadith-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-right: 4px solid var(--secondary-color);
+        }
+
+        .hadith-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .arabic-text {
+            font-family: var(--arabic-font);
+            font-size: 1.8rem;
+            line-height: 2.5;
+            color: var(--dark-color);
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+
+        .translation {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            padding-right: 1rem;
+            border-right: 2px solid var(--primary-color);
+        }
+
+        .source {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: left;
+            font-style: italic;
+        }
+
+        .decoration {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: rgba(13, 110, 110, 0.1);
+            font-size: 3rem;
+            z-index: 0;
+        }
+
+        /* About Section */
+        .about-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #eee;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .quote {
+            background-color: rgba(13, 110, 110, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .quote p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--dark-color);
+            margin: 1rem 0;
+        }
+
+        .quote i.fa-quote-left {
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .quote i.fa-quote-right {
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+        }
+
+        .quote-source {
+            text-align: left;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .tasbih {
+            font-family: var(--arabic-font);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: var(--secondary-color);
+        }
+
+        /* Scroll to Top Button */
+        #scrollTop {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        #scrollTop:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            nav li {
+                margin: 5px;
+            }
+            
+            nav a {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .arabic-text {
+                font-size: 1.5rem;
+                line-height: 2.2;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .arabic-text {
+                font-size: 1.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .arabic-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-mosque"></i> Kumpulan Hadits Mulia</h1>
+            <p class="subtitle">Tentang Puasa dan Keutamaan Memaafkan</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#puasa" class="active"><i class="fas fa-moon"></i> Hadits Puasa</a></li>
+                <li><a href="#memaafkan"><i class="fas fa-hand-holding-heart"></i> Hadits Memaafkan</a></li>
+                <li><a href="#tentang"><i class="fas fa-info-circle"></i> Tentang</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="puasa" class="hadith-section">
+            <div class="section-header">
+                <h2><i class="fas fa-moon"></i> Hadits-Hadits tentang Puasa</h2>
+                <div class="arabic-title">أحاديث الصيام</div>
+            </div>
+            
+            <div class="hadith-card">
+                <div class="arabic-text">الصِّيَامُ جُنَّةٌ، فَإِذَا كَانَ يَوْمُ صَوْمِ أَحَدِكُمْ فَلَا يَرْفُثْ وَلَا يَصْخَبْ، فَإِنْ سَابَّهُ أَحَدٌ أَوْ قَاتَلَهُ فَلْيَقُلْ إِنِّي امْرُؤٌ صَائِمٌ</div>
+                <div class="translation"> 'Puasa adalah perisai. Jika salah seorang dari kalian sedang berpuasa, janganlah berkata kotor dan berteriak-teriak. Jika ada orang yang mencaci atau memusuhinya, hendaklah ia mengatakan, 'Aku sedang berpuasa.'</div>
+                <div class="source">HR. Bukhari & Muslim</div>
+                <div class="decoration"><i class="fas fa-star-and-crescent"></i></div>
+            </div>
+            
+            <div class="hadith-card">
+                <div class="arabic-text">كُلُّ عَمَلِ ابْنِ آدَمَ يُضَاعَفُ الْحَسَنَةُ عَشْرُ أَمْثَالِهَا إِلَى سَبْعِمِائَةِ ضِعْفٍ قَالَ اللَّهُ عَزَّ وَجَلَّ إِلَّا الصَّوْمَ فَإِنَّهُ لِي وَأَنَا أَجْزِي بِهِ</div>
+                <div class="translation">Setiap amalan anak Adam dilipatgandakan pahalanya; satu kebaikan dibalas sepuluh kali lipat hingga tujuh ratus kali lipat. Allah 'Azza wa Jalla berfirman: 'Kecuali puasa, karena puasa itu untuk-Ku dan Aku yang akan membalasnya.'</div>
+                <div class="source">HR. Muslim</div>
+                <div class="decoration"><i class="fas fa-star-and-crescent"></i></div>
+            </div>
+            
+            <div class="hadith-card">
+                <div class="arabic-text">مَنْ صَامَ يَوْمًا فِي سَبِيلِ اللَّهِ بَعَّدَ اللَّهُ وَجْهَهُ عَنِ النَّارِ سَبْعِينَ خَرِيفًا</div>
+                <div class="translation">Barangsiapa berpuasa satu hari di jalan Allah, maka Allah akan menjauhkan wajahnya dari neraka sejauh tujuh puluh tahun perjalanan.</div>
+                <div class="source">HR. Bukhari & Muslim</div>
+                <div class="decoration"><i class="fas fa-star-and-crescent"></i></div>
+            </div>
+        </section>
+
+        <section id="memaafkan" class="hadith-section">
+            <div class="section-header">
+                <h2><i class="fas fa-hand-holding-heart"></i> Hadits-Hadits tentang Memaafkan</h2>
+                <div class="arabic-title">أحاديث العفو</div>
+            </div>
+            
+            <div class="hadith-card">
+                <div class="arabic-text">مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ، وَمَا زَادَ اللَّهُ عَبْدًا بِعَفْوٍ إِلَّا عِزًّا</div>
+                <div class="translation">Sedekah tidak akan mengurangi harta, dan tidaklah Allah menambahkan kepada seorang hamba sifat pemaaf kecuali kemuliaan.</div>
+                <div class="source">HR. Muslim</div>
+                <div class="decoration"><i class="fas fa-dove"></i></div>
+            </div>
+            
+            <div class="hadith-card">
+                <div class="arabic-text">وَأَنْ تَعْفُوا أَقْرَبُ لِلتَّقْوَى وَلَا تَنْسَوُا الْفَضْلَ بَيْنَكُمْ</div>
+                <div class="translation">Dan memaafkan itu lebih dekat kepada takwa. Dan janganlah kamu melupakan keutamaan di antara kamu.</div>
+                <div class="source">QS. Al-Baqarah: 237</div>
+                <div class="decoration"><i class="fas fa-dove"></i></div>
+            </div>
+            
+            <div class="hadith-card">
+                <div class="arabic-text">مَنْ كَظَمَ غَيْظًا وَهُوَ قَادِرٌ عَلَى أَنْ يُنْفِذَهُ، دَعَاهُ اللَّهُ عَلَى رُءُوسِ الْخَلَائِقِ يَوْمَ الْقِيَامَةِ حَتَّى يُخَيِّرَهُ مِنَ الْحُورِ الْعِينِ مَا شَاءَ</div>
+                <div class="translation">Barangsiapa menahan amarah padahal ia mampu meluapkannya, maka Allah akan memanggilnya di hadapan seluruh makhluk pada Hari Kiamat hingga memilihkan bidadari surga yang ia kehendaki.</div>
+                <div class="source">HR. Abu Daud & Tirmidzi</div>
+                <div class="decoration"><i class="fas fa-dove"></i></div>
+            </div>
+        </section>
+
+        <section id="tentang" class="about-section">
+            <h2><i class="fas fa-info-circle"></i> Tentang Website Ini</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Website ini dibuat oleh seorang pelajat smp dari Semarang dan menjadikan website ini sebagai media untuk mempelajari dan mengingat hadits-hadits Nabi Muhammad ﷺ tentang puasa dan keutamaan memaafkan.</p>
+                    <p>Semoga dengan membaca hadits-hadits ini, kita dapat mengamalkannya dalam kehidupan sehari-hari dan meraih ridha Allah Subhanahu wa Ta'ala.</p>
+                    <div class="quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Barangsiapa menunjukkan kepada kebaikan, maka baginya pahala seperti pahala orang yang mengerjakannya</p>
+                        <i class="fas fa-quote-right"></i>
+                        <p class="quote-source">HR. Muslim</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="masjid.png" alt="Masjid">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#puasa">Hadits Puasa</a></li>
+                        <li><a href="#memaafkan">Hadits Memaafkan</a></li>
+                        <li><a href="#tentang">Tentang</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Referensi</h3>
+                    <ul>
+                        <li>Shahih Bukhari</li>
+                        <li>Shahih Muslim</li>
+                        <li>Sunan Abu Daud</li>
+                        <li>Sunan Tirmidzi</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <div class="social-icons">
+                        <a href="https://facebook.com/Rizky Mustafa Afrino"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/rizk45318"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/riz_456d"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="year"></span> Kumpulan Hadits. Semua hak dilindungi. Dibuat oleh Riz_dev.</p>
+                <p class="tasbih">سبحانك اللهم وبحمدك أشهد أن لا إله إلا أنت أستغفرك وأتوب إليك</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTop" title="Kembali ke Atas"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav links
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Scroll to top button
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.style.display = 'flex';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelector('nav a[href="#puasa"]').classList.add('active');
+            });
+            
+            // Highlight current section in navigation
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                
+                document.querySelectorAll('section').forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        const id = section.getAttribute('id');
+                        document.querySelectorAll('nav a').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Animation for hadith cards
+            const hadithCards = document.querySelectorAll('.hadith-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            hadithCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Arabic text hover effect
+            const arabicTexts = document.querySelectorAll('.arabic-text');
+            
+            arabicTexts.forEach(text => {
+                text.addEventListener('mouseover', function() {
+                    this.style.color = 'var(--primary-color)';
+                    this.style.textShadow = '0 0 5px rgba(13, 110, 110, 0.3)';
+                });
+                
+                text.addEventListener('mouseout', function() {
+                    this.style.color = '';
+                    this.style.textShadow = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

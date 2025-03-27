@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Latar Belakang Gambar Masjid */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('alquran.png'); /* Path gambar masjid */
+    background-size: cover;
+    background-position: center;
+    filter: blur(7px) brightness(0.9) contrast(1.2); /* Efek blur, kecerahan, dan kontras */
+    z-index: -1; /* Letakkan di belakang konten */
+    font-family: 'Amiri', serif;
+    background-color: #e6e5e6;
+    display: flex;
+    flex-direction: column; /* Mengatur tata letak vertikal */
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+/* Pastikan konten di atas latar belakang */
+body {
+    position: relative;
+    z-index: 1;
+}
+/* Hamburger Menu */
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001; /* Pastikan di atas elemen lain */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Latar belakang hamburger */
+.hamburger-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px; /* Lebar latar belakang */
+    height: 40px; /* Tinggi latar belakang */
+    background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang */
+    border-radius: 50%; /* Bentuk bulat */
+    z-index: -1; /* Letakkan di belakang ikon */
+    transition: opacity 0.3s ease; /* Animasi opacity */
+}
+
+/* Saat sidebar aktif, sembunyikan latar belakang */
+.menu.active ~ .hamburger .hamburger-bg {
+    opacity: 0;
+}
+
+/* Ikon hamburger */
+.hamburger i {
+    z-index: 1; /* Pastikan ikon di atas latar belakang */
+}
+
+/* Menu Sidebar */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding-top: 60px;
+    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.menu a:hover {
+    background: #444;
+}
+
+/* Saat menu aktif */
+.menu.active {
+    left: 0;
+    opacity: 1;
+}
+
+/* Animasi untuk setiap link saat menu aktif */
+.menu.active a {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Tambahkan delay untuk animasi tiap link */
+.menu.active a:nth-child(1) { transition-delay: 0.1s; }
+.menu.active a:nth-child(2) { transition-delay: 0.2s; }
+.menu.active a:nth-child(3) { transition-delay: 0.3s; }
+.menu.active a:nth-child(4) { transition-delay: 0.4s; }
+/* Submenu */
+.submenu {
+    position: relative;
+}
+
+.submenu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.submenu-items {
+    display: none; /* Sembunyikan submenu secara default */
+    padding-left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.submenu-items a {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+/* Saat submenu aktif */
+.submenu.active .submenu-items {
+    display: block; /* Tampilkan submenu */
+}
+
+/* Ikon panah */
+.submenu-toggle .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.submenu.active .submenu-toggle .fa-chevron-down {
+    transform: rotate(180deg); /* Putar ikon saat submenu aktif */
+}
+audio {
+    display: none; /* Sembunyikan elemen audio */
+}
+
+/* Tombol Kontrol Musik */
+.music-control {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#play-pause-btn {
+    background-color: #25d366; /* Warna hijau WhatsApp */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#play-pause-btn:hover {
+    background-color: #128c7e; /* Warna hover */
+}
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Kontrol Musik */
+.music-control {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Container untuk ikon media sosial */
+.social-media {
+    display: flex; /* Menjadikan ikon sejajar horizontal */
+    gap: 10px; /* Memberi jarak antar ikon */
+    justify-content: center; /* Memusatkan ikon jika di dalam container */
+    align-items: center; /* Menyelaraskan ikon secara vertikal */
+}
+
+.star-animation {
+    font-size: 5rem;
+    color: #ffd700;
+    animation: spin 2s linear infinite, glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 5px #ffd700); }
+    100% { filter: drop-shadow(0 0 20px #ffd700); }
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.arabic-text {
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.ucapan {
+    font-size: 1.1rem;
+    color: #132A43;
+}
+
+/* Animasi Gelembung */
+.bubbles {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: bubble-float 5s infinite ease-in;
+}
+
+@keyframes bubble-float {
+    0% { bottom: -100px; transform: translateX(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { bottom: 100%; transform: translateX(200px); opacity: 0; }
+}
+
+.bubble:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-duration: 6s; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 20%; width: 30px; height: 30px; animation-duration: 8s; animation-delay: 1s; }
+.bubble:nth-child(3) { left: 30%; width: 25px; height: 25px; animation-duration: 7s; animation-delay: 2s; }
+.bubble:nth-child(4) { left: 40%; width: 35px; height: 35px; animation-duration: 9s; animation-delay: 0.5s; }
+.bubble:nth-child(5) { left: 50%; width: 40px; height: 40px; animation-duration: 6s; animation-delay: 1.5s; }
+.bubble:nth-child(6) { left: 60%; width: 30px; height: 30px; animation-duration: 7s; animation-delay: 2.5s; }
+.bubble:nth-child(7) { left: 70%; width: 25px; height: 25px; animation-duration: 8s; animation-delay: 0s; }
+.bubble:nth-child(8) { left: 80%; width: 35px; height: 35px; animation-duration: 9s; animation-delay: 1s; }
+.bubble:nth-child(9) { left: 90%; width: 20px; height: 20px; animation-duration: 6s; animation-delay: 2s; }
+.bubble:nth-child(10) { left: 95%; width: 30px; height: 30px; animation-duration: 7s; animation-delay: 0.5s; }
+
+.whatsapp-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
+}
+
+/* Penjelasan Puasa dan Keutamaan Memaafkan */
+.section {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(120deg, #222, #111);
+    opacity: 0; /* Awalnya tidak terlihat */
+    transform: translateY(50px); /* Awalnya bergeser ke bawah */
+    color: #DDD;
+    width: 100%;
+    margin: 0 auto;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section h2 {
+    color: #FF0066;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: auto;
+}
+/* Animasi Scroll ke Bawah */
+.scroll-down {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #456e;
+    font-size: 1rem;
+    opacity: 0; /* Awalnya tidak terlihat */
+    animation: fadeIn 2s ease-in-out 1s forwards; /* Muncul setelah 3 detik */
+}
+
+.scroll-down i {
+    margin-top: 5px;
+    animation: bounce 2s infinite; /* Animasi bounce */
+}
+
+/* Animasi fadeIn */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Animasi bounce */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}

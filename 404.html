@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="website icon" type="png" href="komputer.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+            animation: float 3s infinite ease-in-out;
+        }
+        h1 {
+            font-size: 80px;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+        p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 10px;
+            max-width: 400px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #132A43;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-in-out forwards;
+        }
+        a:hover {
+            background-color: #133B43;
+        }
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png" alt="404 Icon">
+    <p>"Maaf, halaman yang Anda cari saat ini tidak dapat ditemukan atau sedang dalam perbaikan. Silakan kembali ke halaman utama dan coba mencari informasi yang Anda butuhkan di sana. Terima kasih atas pengertiannya."</p>
+    <a href="index.html">Kembali ke Beranda</a>
+</body>
+</html>
